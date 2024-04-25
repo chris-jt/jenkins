@@ -16,7 +16,7 @@ node('master') {
     }
 }
 pipeline {
-  agent { label "${AGENT_LABEL}"
+  agent { label "${AGENT_LABEL}"}
   environment {
     appName = "variable" 
   }
