@@ -1,22 +1,10 @@
 import groovy.json.JsonSlurperClassic
-def AGENT_LABEL = null
+
 def jsonParse(def json) {
     new groovy.json.JsonSlurperClassic().parseText(json)
 }
-
-
-node('controller') {
-    stage('Checkout and set agent') {
-        checkout scm
-        if (env.BRANCH_NAME == 'controller') {
-            AGENT_LABEL = "prod"
-        } else {
-            AGENT_LABEL = "dev"
-        }
-    }
-}
 pipeline {
-  agent { label "${AGENT_LABEL}"}
+  agent { label 'controller' }
   environment {
     appName = "variable" 
   }
