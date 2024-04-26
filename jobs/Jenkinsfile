@@ -8,7 +8,7 @@ def jsonParse(def json) {
 node('master') {
     stage('Checkout and set agent') {
         checkout scm
-        if (env.BRANCH_NAME == 'master') {
+        if (env.BRANCH_NAME == 'controller') {
             AGENT_LABEL = "prod"
         } else {
             AGENT_LABEL = "dev"
