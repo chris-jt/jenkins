@@ -5,7 +5,7 @@ def jsonParse(def json) {
 }
 
 
-node('master') {
+node('controller') {
     stage('Checkout and set agent') {
         checkout scm
         if (env.BRANCH_NAME == 'controller') {
